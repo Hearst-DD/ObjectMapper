@@ -134,7 +134,7 @@ public final class Map {
 				#if swift(>=4.1)
 				return v.compactMap{ Float($0) } as? T
 				#else
-				return v.flatMap{ Float($0) } as? T
+				return v.compactMap{ Float($0) } as? T
 				#endif
 			}
 		} else if value == nil && T.self == [String:Float].self {

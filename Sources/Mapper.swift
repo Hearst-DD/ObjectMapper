@@ -167,7 +167,7 @@ public final class Mapper<N: BaseMappable> {
 		#if swift(>=4.1)
 		let result = JSONArray.compactMap(map)
 		#else
-		let result = JSONArray.flatMap(map)
+		let result = JSONArray.compactMap(map)
 		#endif
 		return result
 	}
@@ -435,7 +435,7 @@ extension Mapper where N: Hashable {
 		#if swift(>=4.1)
 		return Set(JSONArray.compactMap(map))
 		#else
-		return Set(JSONArray.flatMap(map))
+		return Set(JSONArray.compactMap(map))
 		#endif
 	}
 

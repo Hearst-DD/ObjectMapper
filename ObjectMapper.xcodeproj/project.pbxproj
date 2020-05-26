@@ -730,11 +730,11 @@
 					};
 					6AAC8F7519F03C2900E7A677 = {
 						CreatedOnToolsVersion = 6.0.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 					};
 					6AAC8F8019F03C2900E7A677 = {
 						CreatedOnToolsVersion = 6.0.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 					};
 					CD1602FE1AC023D5000CD69A = {
 						CreatedOnToolsVersion = 6.2;
@@ -1367,8 +1367,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tristanhimmelman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -1389,8 +1388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tristanhimmelman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -1408,8 +1406,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.heart.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1421,8 +1418,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.heart.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

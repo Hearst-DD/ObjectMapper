@@ -504,7 +504,7 @@ public func <- <Transform: TransformType>(left: inout [[Transform.Object]], righ
 			fromJSONArrayWithTransform(values as Any?, transform: transform)
 		}
 		#else
-		let transformed2DArray = original2DArray.flatMap { values in
+		let transformed2DArray = original2DArray.compactMap { values in
 			fromJSONArrayWithTransform(values as Any?, transform: transform)
 		}
 		#endif
@@ -522,7 +522,7 @@ public func >>> <Transform: TransformType>(left: [[Transform.Object]], right: (M
 			toJSONArrayWithTransform(values, transform: transform)
 		}
 		#else
-		let transformed2DArray = left.flatMap { values in
+		let transformed2DArray = left.compactMap { values in
 			toJSONArrayWithTransform(values, transform: transform)
 		}
 		#endif
@@ -543,7 +543,7 @@ public func <- <Transform: TransformType>(left: inout [[Transform.Object]]?, rig
 			fromJSONArrayWithTransform(values as Any?, transform: transform)
 		}
 		#else
-		let transformed2DArray = original2DArray.flatMap { values in
+		let transformed2DArray = original2DArray.compactMap { values in
 			fromJSONArrayWithTransform(values as Any?, transform: transform)
 		}
 		#endif
@@ -561,7 +561,7 @@ public func >>> <Transform: TransformType>(left: [[Transform.Object]]?, right: (
 			toJSONArrayWithTransform(values, transform: transform)
 		}
 		#else
-		let transformed2DArray = left?.flatMap { values in
+		let transformed2DArray = left?.compactMap { values in
 			toJSONArrayWithTransform(values, transform: transform)
 		}
 		#endif
@@ -671,7 +671,7 @@ private func fromJSONArrayWithTransform<Transform: TransformType>(_ input: Any?,
 			return transform.transformFromJSON(value)
 		}
 		#else
-		return values.flatMap { value in
+		return values.compactMap { value in
 			return transform.transformFromJSON(value)
 		}
 		#endif
@@ -696,7 +696,7 @@ private func toJSONArrayWithTransform<Transform: TransformType>(_ input: [Transf
 		return transform.transformToJSON(value)
 	}
 	#else
-	return input?.flatMap { value in
+	return input?.compactMap { value in
 		return transform.transformToJSON(value)
 	}
 	#endif

@@ -48,7 +48,7 @@ private func setValue(_ value: Any, forKeyPathComponents components: ArraySlice<
 
 	let headAsString = String(head)
 	if components.count == 1 {
-		dictionary[headAsString] = value
+                dictionary[headAsString] = value
 	} else {
 		var child = dictionary[headAsString] as? [String : Any] ?? [:]
 		

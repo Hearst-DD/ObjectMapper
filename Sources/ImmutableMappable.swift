@@ -272,7 +272,7 @@ public extension Mapper where N: ImmutableMappable {
 		#if swift(>=4.1)
 		return try JSONArray.compactMap(mapOrFail)
 		#else
-		return try JSONArray.flatMap(mapOrFail)
+		return try JSONArray.compactMap(mapOrFail)
 		#endif
 	}
 	
