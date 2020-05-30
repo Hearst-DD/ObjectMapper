@@ -277,7 +277,7 @@ public extension Mapper where N: ImmutableMappable {
 	}
 	
 	func mapArray(JSONString: String) throws -> [N] {
-		guard let JSONObject = Mapper.parseJSONString(JSONString: JSONString) else {
+		guard let JSONObject = MapperParse.toJSONObject(JSONString: JSONString) else {
 			throw MapError(key: nil, currentValue: JSONString, reason: "Cannot convert string into Any'")
 		}
 		
@@ -295,7 +295,7 @@ public extension Mapper where N: ImmutableMappable {
 	// MARK: Dictionary mapping functions
 
 	func mapDictionary(JSONString: String) throws -> [String: N] {
-		guard let JSONObject = Mapper.parseJSONString(JSONString: JSONString) else {
+		guard let JSONObject = MapperParse.toJSONObject(JSONString: JSONString) else {
 			throw MapError(key: nil, currentValue: JSONString, reason: "Cannot convert string into Any'")
 		}
 
@@ -360,7 +360,7 @@ internal extension Mapper {
 	}
 
 	func mapOrFail(JSONString: String) throws -> N {
-		guard let JSON = Mapper.parseJSONStringIntoDictionary(JSONString: JSONString) else {
+		guard let JSON = MapperParse.toJSONDictionary(JSONString: JSONString) else {
 			throw MapError(key: nil, currentValue: JSONString, reason: "Cannot parse into '[String: Any]'")
 		}
 		return try mapOrFail(JSON: JSON)

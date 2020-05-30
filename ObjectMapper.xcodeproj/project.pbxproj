@@ -149,6 +149,10 @@
 		C135CABA1D7631DB00BA9338 /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135CAB31D762F6900BA9338 /* DataTransform.swift */; };
 		C135CABB1D7631DB00BA9338 /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135CAB31D762F6900BA9338 /* DataTransform.swift */; };
 		C135CABC1D7631DC00BA9338 /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135CAB31D762F6900BA9338 /* DataTransform.swift */; };
+		C7A1C2B322B3A48100858848 /* MapperParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1C2B222B3A48100858848 /* MapperParse.swift */; };
+		C7A1C2B422B3A48100858848 /* MapperParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1C2B222B3A48100858848 /* MapperParse.swift */; };
+		C7A1C2B522B3A48100858848 /* MapperParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1C2B222B3A48100858848 /* MapperParse.swift */; };
+		C7A1C2B622B3A48100858848 /* MapperParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1C2B222B3A48100858848 /* MapperParse.swift */; };
 		CD16030A1AC023D6000CD69A /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1602FF1AC023D5000CD69A /* ObjectMapper.framework */; };
 		CD1603181AC02437000CD69A /* ObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AAC8F7B19F03C2900E7A677 /* ObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD1603191AC02451000CD69A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC8FC419F048FE00E7A677 /* Mapper.swift */; };
@@ -302,6 +306,7 @@
 		BC1E7F361ABC44C000F9B1CF /* EnumTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTransform.swift; sourceTree = "<group>"; };
 		C135CAB31D762F6900BA9338 /* DataTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTransform.swift; sourceTree = "<group>"; };
 		C135CAB61D76303E00BA9338 /* DataTransformTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataTransformTests.swift; path = ObjectMapperTests/DataTransformTests.swift; sourceTree = "<group>"; };
+		C7A1C2B222B3A48100858848 /* MapperParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperParse.swift; sourceTree = "<group>"; };
 		CD1602FF1AC023D5000CD69A /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1603091AC023D6000CD69A /* ObjectMapper-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObjectMapper-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD44374C1AAE9C1100A271BA /* NestedKeysTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = NestedKeysTests.swift; path = ObjectMapperTests/NestedKeysTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -480,6 +485,7 @@
 				3BAD2C0B1BDDB10D00E6B203 /* Mappable.swift */,
 				030114A81D95187600FBFD4F /* ImmutableMappable.swift */,
 				6AAC8FC419F048FE00E7A677 /* Mapper.swift */,
+				C7A1C2B222B3A48100858848 /* MapperParse.swift */,
 				6AF148961D99A912002BEA2C /* Operators */,
 				6AAC8FC319F048FE00E7A677 /* FromJSON.swift */,
 				6AAC8FC719F048FE00E7A677 /* ToJSON.swift */,
@@ -841,6 +847,7 @@
 				6AC692361BE3FD3A004C119A /* Operators.swift in Sources */,
 				84D4F8551CC3B643008B0FB6 /* NSDecimalNumberTransform.swift in Sources */,
 				6AC692371BE3FD3A004C119A /* FromJSON.swift in Sources */,
+				C7A1C2B622B3A48100858848 /* MapperParse.swift in Sources */,
 				6AF148951D99A7CA002BEA2C /* EnumOperators.swift in Sources */,
 				997B4A4A1D3FA20D005E3F31 /* DictionaryTransform.swift in Sources */,
 				6AC692381BE3FD3A004C119A /* ToJSON.swift in Sources */,
@@ -901,6 +908,7 @@
 				6ACB15D41BC7F1D0006C029C /* Map.swift in Sources */,
 				84D4F8541CC3B643008B0FB6 /* NSDecimalNumberTransform.swift in Sources */,
 				6A2AD0471B2C786C0097E150 /* FromJSON.swift in Sources */,
+				C7A1C2B522B3A48100858848 /* MapperParse.swift in Sources */,
 				6AF148941D99A7CA002BEA2C /* EnumOperators.swift in Sources */,
 				997B4A491D3FA20D005E3F31 /* DictionaryTransform.swift in Sources */,
 				6A2AD0481B2C786C0097E150 /* ToJSON.swift in Sources */,
@@ -932,6 +940,7 @@
 				6ACB15D21BC7F1D0006C029C /* Map.swift in Sources */,
 				84D4F8521CC3B643008B0FB6 /* NSDecimalNumberTransform.swift in Sources */,
 				6AAC8FD319F048FE00E7A677 /* DateTransform.swift in Sources */,
+				C7A1C2B322B3A48100858848 /* MapperParse.swift in Sources */,
 				6AF148921D99A7CA002BEA2C /* EnumOperators.swift in Sources */,
 				997B4A471D3FA20D005E3F31 /* DictionaryTransform.swift in Sources */,
 				BC1E7F371ABC44C000F9B1CF /* EnumTransform.swift in Sources */,
@@ -992,6 +1001,7 @@
 				CD1603201AC02461000CD69A /* CustomDateFormatTransform.swift in Sources */,
 				CD16031E1AC02461000CD69A /* DateFormatterTransform.swift in Sources */,
 				84D4F8531CC3B643008B0FB6 /* NSDecimalNumberTransform.swift in Sources */,
+				C7A1C2B422B3A48100858848 /* MapperParse.swift in Sources */,
 				6AF148931D99A7CA002BEA2C /* EnumOperators.swift in Sources */,
 				6ACB15D31BC7F1D0006C029C /* Map.swift in Sources */,
 				997B4A481D3FA20D005E3F31 /* DictionaryTransform.swift in Sources */,
