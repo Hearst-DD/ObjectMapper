@@ -37,24 +37,21 @@ open class CodableTransform<T: Codable>: TransformType {
     public init() {}
 
     open func transformFromJSON(_ value: Any?) -> Object? {
-				var _data: Data? = nil
-				switch value {
-				case let dict as [String : Any]:
-					_data = try? JSONSerialization.data(withJSONObject: dict, options: [])
-				case let array as [[String : Any]]:
-					_data = try? JSONSerialization.data(withJSONObject: array, options: [])
-				default:
-					_data = nil
-				}
-				guard let data = _data else { return nil }
-				
-        do {
-            let decoder = JSONDecoder()
-            let item = try decoder.decode(T.self, from: data)
-            return item
-        } catch {
-            return nil
-        }
+		guard let item = value else {
+			return nil
+		}
+		
+		if JSONSerialization.isValidJSONObject(item) {
+			guard let data = try? JSONSerialization.data(withJSONObject: item, options: []) else {
+				return nil
+			}
+			return try? JSONDecoder().decode(T.self, from: data)
+		} else {
+			guard let data = try? JSONSerialization.data(withJSONObject: ["value": item], options: []) else {
+				return nil
+			}
+			return try? JSONDecoder().decode(DecodableWrapper<T>.self, from: data).value
+		}
     }
 
     open func transformToJSON(_ value: T?) -> JSON? {
@@ -70,4 +67,8 @@ open class CodableTransform<T: Codable>: TransformType {
             return nil
         }
     }
+}
+
+private struct DecodableWrapper<T: Decodable>: Decodable {
+    let value: T
 }

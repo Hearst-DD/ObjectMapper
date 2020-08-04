@@ -32,49 +32,74 @@ import ObjectMapper
 
 class CodableTests: XCTestCase {
 	
-	override func setUp() {
-		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
+	func testSingleValueCodableTransform() {
+		let boolJSON = ["value": ["single_value": true]]
+		let boolObject = try? Mapper<SingleMappableObject<Bool>>().map(JSON: boolJSON)
+		XCTAssertEqual(true, boolObject?.value)
+		
+		let intJSON = ["value": ["single_value": 1]]
+		let intObject = try? Mapper<SingleMappableObject<Int>>().map(JSON: intJSON)
+		XCTAssertEqual(1, intObject?.value)
+		
+		let stringJSON = ["value": ["single_value": "hello object mapper"]]
+		let stringObject = try? Mapper<SingleMappableObject<String>>().map(JSON: stringJSON)
+		XCTAssertEqual("hello object mapper", stringObject?.value)
 	}
 	
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
+	func testArrayValueCodableTransform() {
+		let boolArrayJSON = ["value": ["array_value": [false, false, true, true]]]
+		let boolArrayObject = try? Mapper<ArrayMappableObject<Bool>>().map(JSON: boolArrayJSON)
+		XCTAssertEqual([false, false, true, true], boolArrayObject?.value)
+		
+		let intArrayJSON = ["value": ["array_value": [1, 2, 3, 4]]]
+		let intArrayObject = try? Mapper<ArrayMappableObject<Int>>().map(JSON: intArrayJSON)
+		XCTAssertEqual([1, 2, 3, 4], intArrayObject?.value)
+		
+		let stringArrayJSON = ["value": ["array_value": ["hello", "안녕", "nice to meet ypu", "만나서 반가워"]]]
+		let stringArrayObject = try? Mapper<ArrayMappableObject<String>>().map(JSON: stringArrayJSON)
+		XCTAssertEqual(["hello", "안녕", "nice to meet ypu", "만나서 반가워"], stringArrayObject?.value)
 	}
 	
 	func testCodableTransform() {
-		let value: [String: Any] = [ "one": "1", "two": 2, "three": true ]
-		let JSON: [String: Any] = [ "value": value, "array_value": [value, value]]
+		let value: [String: Any] = ["one": "1", "two": 2, "three": true]
+		let json: [String: Any] = ["value": value, "array_value": [value, value]]
 		
-		let mapper = Mapper<ImmutableMappableObject>()
-		
-		let object: ImmutableMappableObject! = mapper.map(JSON: JSON)
+		let object = try? Mapper<MappableObject>().map(JSON: json)
 		XCTAssertNotNil(object)
-		XCTAssertNil(object.nilValue) // without transform this is nil
-		XCTAssertNotNil(object.value)
-		XCTAssertNotNil(object.value?.one)
-		XCTAssertNotNil(object.value?.two)
-		XCTAssertNotNil(object.value?.three)
-		XCTAssertNotNil(object.arrayValue)
+		XCTAssertNil(object?.nilValue) // without transform this is nil
+		XCTAssertNotNil(object?.value)
+		XCTAssertNotNil(object?.value?.one)
+		XCTAssertNotNil(object?.value?.two)
+		XCTAssertNotNil(object?.value?.three)
+		XCTAssertNotNil(object?.arrayValue)
 	}
 }
 
-class ImmutableMappableObject: ImmutableMappable {
-	
-	var value: CodableModel?
-	var arrayValue: [CodableModel]?
-	var nilValue: CodableModel?
+class SingleMappableObject<T: Codable>: ImmutableMappable {
+	let value: T
 	
 	required init(map: Map) throws {
-		nilValue = try? map.value("value")
-		value = try? map.value("value", using: CodableTransform<CodableModel>())
-		arrayValue = try? map.value("array_value", using: CodableTransform<[CodableModel]>())
+		self.value = try map.value("value.single_value", using: CodableTransform<T>())
 	}
+}
 
-	func mapping(map: Map) {
-		nilValue <- map["value"]
-		value	<- (map["value"], using: CodableTransform<CodableModel>())
-		arrayValue <- (map["array_value"], using: CodableTransform<[CodableModel]>())
+class ArrayMappableObject<T: Codable>: ImmutableMappable {
+	let value: [T]
+	
+	required init(map: Map) throws {
+		self.value = try map.value("value.array_value", using: CodableTransform<T>())
+	}
+}
+
+class MappableObject: ImmutableMappable {
+	let value: CodableModel?
+	let arrayValue: [CodableModel]?
+	let nilValue: CodableModel?
+	
+	required init(map: Map) throws {
+		self.nilValue = try? map.value("value")
+		self.value = try? map.value("value", using: CodableTransform<CodableModel>())
+		self.arrayValue = try? map.value("array_value", using: CodableTransform<[CodableModel]>())
 	}
 }
 
